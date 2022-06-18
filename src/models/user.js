@@ -16,6 +16,22 @@ const getUserById = async (id) => {
     }
 }
 
+const getUserByEmail = async (email) => {
+    try {
+        const query = {
+            text: `SELECT * FROM users WHERE email = $1`,
+            values: [email]
+        }
+        const result = await pool.query(query)
+        const user = result.rows[0]
+        return user
+    } catch (error) {
+        const message = `Error al ejecutar sentencia: ${error}`
+        console.log(message)
+        throw new Error(message)
+    }
+}
+
 const addUser = async (name, email, password) => {
     try {
         const query = {
@@ -34,5 +50,6 @@ const addUser = async (name, email, password) => {
 
 module.exports = {
     getUserById,
+    getUserByEmail,
     addUser
 }
