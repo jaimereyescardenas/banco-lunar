@@ -4,12 +4,16 @@
   "description": "- Crear un servidor web que nos permita simular un banco, pudiendo registrar usuarios, hacer transferencias desde y hacia las diferentes cuentas que existan en el banco\r - También debe guardar registro de cada una de las transacciones",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
+    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }

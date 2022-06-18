@@ -1,4 +1,6 @@
 const express = require('express')
+const path = require('path')
+const handlebars = require('express-handlebars')
 
 const app = express()
 
@@ -6,10 +8,13 @@ const app = express()
 const PORT = 3000
 
 // Config
+app.engine('handlebars', handlebars.engine())
+app.set('view engine','handlebars')
+app.set('views', path.join(__dirname,'views'))
 
 // Rutas
 app.get('/', (req, res) => {
-    res.send('Servidor configurado!')
+    res.render('login')
 })
 
 // Puerto de ejecución
